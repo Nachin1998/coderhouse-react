@@ -1,39 +1,33 @@
-import { useState } from 'react'
-import NavBar from "./components/navbar/NavBar.jsx"
-import Item from "./components/item/item.jsx"
-import './App.css'
+// App.js
+
+import React from 'react';
+import Navbar from './assets/components/NavBar/NavBar.jsx';
+import ItemListContainer from './assets/components/ItemListContainer/ItemListContainer.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import Home from './pages/home/Home.jsx'
+import AboutUs from './pages/about-us/AboutUs.jsx'
+import ContactUs from './pages/contact-us/ContactUs.jsx'
+import Services from './pages/services/Services.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
-    <>
-      <NavBar />
-      <Item
-        imagePath="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-      />
-      <Item
-        imagePath="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-      />
-      <Item
-        imagePath="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-      />
-      <Item
-        imagePath="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-      />
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <ItemListContainer greeting="Firepunch Studios" />
 
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <Routes>
+          <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+          <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
+          <Route path="/services" element={<Services></Services>}></Route>
+        </Routes>
+
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
