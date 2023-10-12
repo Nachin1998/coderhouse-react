@@ -1,15 +1,17 @@
-// App.js
-
 import React from 'react';
 import Navbar from './assets/components/NavBar/NavBar.jsx';
 import ItemListContainer from './assets/components/ItemListContainer/ItemListContainer.jsx';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Home from './pages/home/Home.jsx'
 import AboutUs from './pages/about-us/AboutUs.jsx'
 import ContactUs from './pages/contact-us/ContactUs.jsx'
 import Services from './pages/services/Services.jsx'
+import ServiceItem from './assets/components/ServiceItem/ServiceItem.jsx'
+import NotFound from './pages/not-found/NotFound.jsx'
 
 function App() {
   return (
@@ -19,10 +21,12 @@ function App() {
         <ItemListContainer greeting="Firepunch Studios" />
 
         <Routes>
-          <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/" element={<Home></Home>}></Route>
           <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
           <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
           <Route path="/services" element={<Services></Services>}></Route>
+          <Route path="/services/:id" element={<ServiceItem />} />
+          <Route path="/*" element={<NotFound></NotFound>}></Route>
         </Routes>
 
       </div>
