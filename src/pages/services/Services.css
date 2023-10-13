@@ -1,0 +1,32 @@
+.services-container {
+    text-align: center;
+    background: #612310; 
+    padding: 20px;
+  }
+  
+  .services-title {
+    font-size: 28px;
+    color: #FFD700;
+    margin: 20px 0;
+  }
+  
+  .services-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .services-item {
+    margin: 10px 0;
+  }
+  
+  .services-link {
+    text-decoration: none;
+    color: #FF4500;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .services-link:hover {
+    color: #FF0000;
+  }
