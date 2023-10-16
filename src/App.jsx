@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './assets/components/NavBar/NavBar.jsx';
 import ItemListContainer from './assets/components/ItemListContainer/ItemListContainer.jsx';
 
@@ -15,10 +15,23 @@ import ServiceItem from './assets/components/ServiceItem/ServiceItem.jsx'
 import NotFound from './pages/not-found/NotFound.jsx'
 
 function App() {
+  const [itemCount, setItemCount] = useState(0);
+  
+  const IncreaseItemCount = () => {
+    setItemCount(itemCount + 1);
+  };
+
+  const DecreaseItemCount = () => {
+    if(itemCount - 1 >= 0)
+    {
+      setItemCount(itemCount - 1);
+    }
+  };
+
   return (
     <BrowserRouter>
       <div>
-        <Navbar />
+        <Navbar itemCount={itemCount}/>
         <ItemListContainer greeting="Firepunch Studios" />
 
         <Routes>
@@ -27,7 +40,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
           <Route path="/categories" element={<Categories></Categories>}></Route>
           <Route path="/categories/:categoryId" element={<Services></Services>}></Route>
-          <Route path="/categories/:categoryId/:serviceId" element={<ServiceItem></ServiceItem>}></Route>
+          <Route path="/categories/:categoryId/:serviceId" element={<ServiceItem increase={IncreaseItemCount} decrease={DecreaseItemCount}></ServiceItem>}></Route>
           <Route path="/*" element={<NotFound></NotFound>}></Route>
         </Routes>
       </div>

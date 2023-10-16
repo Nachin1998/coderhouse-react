@@ -2,7 +2,7 @@ import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({itemCount}) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">     
@@ -27,7 +27,7 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <CartWidget />
+              <CartWidget itemCount={itemCount} />
             </li>
 
           </ul>
