@@ -2,7 +2,7 @@ import React from 'react';
 import './ItemListContainer.css';
 const ItemListContainer = ({ greeting }) => {
   return (
-    <div className='center'>
+    <div className='center services-title'>
       <h1>{greeting}</h1>
     </div>
   );

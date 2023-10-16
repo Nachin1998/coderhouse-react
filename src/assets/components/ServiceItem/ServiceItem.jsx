@@ -8,7 +8,7 @@ const ServiceItem = () => {
   const navigate = useNavigate();
   const service = services.find((service) => service.id === serviceId);
 
-  const goBack = () => {
+  const GoBack = () => {
     navigate(`/categories/${categoryId}`);
   };
 
@@ -17,7 +17,7 @@ const ServiceItem = () => {
       <h2 className="service-title">Service:</h2>
       <h3 className="service-name">{service.name}</h3>
       <p className="service-description">{service.description}</p>
-      <button onClick={goBack} className="go-back-button">
+      <button onClick={GoBack} className="go-back-button">
         Go Back
       </button>
     </div>

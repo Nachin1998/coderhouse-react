@@ -13,9 +13,7 @@ const Services = () => {
   }
 
   const selectedCategory = categories.find(category => category.id === categoryId );
-  const servicesToShow = selectedCategory
-  ? services.filter(service => selectedCategory.serviceIds.includes(service.id))
-  : [];
+  const servicesToShow = services.filter(service => selectedCategory.serviceIds.includes(service.id));
 
   return (
     <div className="services-container">
