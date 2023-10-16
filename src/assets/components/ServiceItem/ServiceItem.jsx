@@ -1,15 +1,15 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { services } from '../ServicesToSell/ServicesToSell.jsx';
+import { services } from '../../../data/ServicesToSell/ServicesToSell.js';
 import './serviceItem.css'; // Import the CSS file
 
 const ServiceItem = () => {
-  const { id } = useParams();
+  const { categoryId, serviceId } = useParams();
   const navigate = useNavigate();
-  const service = services.find((service) => service.id === id);
+  const service = services.find((service) => service.id === serviceId);
 
   const goBack = () => {
-    navigate('/services');
+    navigate(`/categories/${categoryId}`);
   };
 
   return (
