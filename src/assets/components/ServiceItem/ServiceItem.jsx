@@ -18,10 +18,10 @@ const ServiceItem = ({AddItem, RemoveItem}) => {
       <h3 className="service-name">{service.name}</h3>
       <p className="service-description">{service.description}</p>
       <div>
-        <button onClick={() => AddItem(service.name)} className="go-back-button">
+        <button onClick={() => AddItem(service.id)} className="go-back-button">
           +
         </button>
-        <button onClick={() => RemoveItem(service.name)} className="go-back-button">
+        <button onClick={() => RemoveItem(service.id)} className="go-back-button">
           -
         </button>
       </div>

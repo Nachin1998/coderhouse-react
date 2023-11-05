@@ -30,3 +30,7 @@
   .services-link:hover {
     color: #FF0000;
   }
+
+  .purchase-item{
+    padding: 20px;
+  }
