@@ -20,14 +20,12 @@ function App() {
   const [servicesSelected, SetServiceSelected] = useState([]);
 
   const AddItem = (serviceId) => {
-
     const updatedServicesSelected = [...servicesSelected, serviceId];
     SetServiceSelected(updatedServicesSelected);
   }
 
   const RemoveItem = (serviceId) => {
     const indexToRemove = servicesSelected.indexOf(serviceId);
-
     if (indexToRemove !== -1) {
       const updatedServicesSelected = [...servicesSelected];
       updatedServicesSelected.splice(indexToRemove, 1);
@@ -35,10 +33,14 @@ function App() {
     }
   }
 
+  const ClearItems = () => {
+    SetServiceSelected([]);
+  }
+
   return (
     <BrowserRouter>
       <div>
-        <Navbar itemCount={servicesSelected.length} />
+        <Navbar itemCount={servicesSelected.length} ClearAllItems={ClearItems} />
         <ItemListContainer greeting="Firepunch Studios" />
 
         <Routes>
@@ -48,7 +50,7 @@ function App() {
           <Route path="/categories" element={<Categories></Categories>}></Route>
           <Route path="/categories/:categoryId" element={<Services></Services>}></Route>
           <Route path="/categories/:categoryId/:serviceId" element={<ServiceItem AddItem={AddItem} RemoveItem={RemoveItem}></ServiceItem>}></Route>
-          <Route path="/purchase" element={<Purchase></Purchase>}></Route>
+          <Route path="/purchase" element={<Purchase servicesToBuy={servicesSelected}></Purchase>}></Route>
           <Route path="/checkout" element={<Checkout></Checkout>}></Route>
           <Route path="/*" element={<NotFound></NotFound>}></Route>
         </Routes>
