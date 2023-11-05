@@ -50,7 +50,7 @@ function App() {
           <Route path="/categories" element={<Categories></Categories>}></Route>
           <Route path="/categories/:categoryId" element={<Services></Services>}></Route>
           <Route path="/categories/:categoryId/:serviceId" element={<ServiceItem AddItem={AddItem} RemoveItem={RemoveItem}></ServiceItem>}></Route>
-          <Route path="/purchase" element={<Purchase servicesToBuy={servicesSelected}></Purchase>}></Route>
+          <Route path="/purchase" element={<Purchase servicesToBuy={servicesSelected} OnAcceptPurchase={ClearItems}></Purchase>}></Route>
           <Route path="/checkout" element={<Checkout></Checkout>}></Route>
           <Route path="/*" element={<NotFound></NotFound>}></Route>
         </Routes>

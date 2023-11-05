@@ -3,7 +3,7 @@ import PurchaseItem from "../../assets/components/PurchaseItem/PurchaseItem.jsx"
 import { services } from "../../data/ServicesToSell/ServicesToSell.js"
 import "./Purchase.css"
 
-const Purchase = ({ servicesToBuy }) => {
+const Purchase = ({ servicesToBuy , OnAcceptPurchase}) => {
     const serviceCount = servicesToBuy.reduce((acc, serviceId) => {
         acc[serviceId] = (acc[serviceId] || 0) + 1;
         return acc;
@@ -44,7 +44,7 @@ const Purchase = ({ servicesToBuy }) => {
 
             <div className="services-container">
                 <Link to="/checkout">
-                    <button className="purchase-button">Accept Purchase</button>
+                    <button className="purchase-button" onClick={OnAcceptPurchase}>Accept Purchase</button>
                 </Link>
 
                 <Link to="/categories">
