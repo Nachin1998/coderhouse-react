@@ -1,11 +1,13 @@
 import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({itemCount, ClearAllItems}) => {
 
+  const location = useLocation();
+
   const HandleClearButton = () => {
-    if (itemCount > 0) {
+    if (itemCount > 0 && !location.pathname.startsWith('/purchase')) {
       return <button onClick={ClearAllItems}>Clear All Items</button>;
     }
     return null;

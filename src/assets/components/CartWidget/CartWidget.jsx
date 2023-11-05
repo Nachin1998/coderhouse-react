@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import './CartWidget.css';
 
 const CartWidget = ({ itemCount }) => {
-  
   const HandlePurchaseLogic = () => {
     const purchasePage = "/purchase";
     const location = useLocation();
@@ -15,7 +14,7 @@ const CartWidget = ({ itemCount }) => {
   
     return null;
   }
-
+  
   return (
     <button className="cart-button">
       <div>

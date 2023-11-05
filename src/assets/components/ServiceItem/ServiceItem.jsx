@@ -5,10 +5,10 @@ import './serviceItem.css'; // Import the CSS file
 
 const ServiceItem = ({AddItem, RemoveItem}) => {
   const { categoryId, serviceId } = useParams();
-  const navigate = useNavigate();
   const service = services.find((service) => service.id === serviceId);
 
   const GoBack = () => {
+    const navigate = useNavigate();
     navigate(`/categories/${categoryId}`);
   };
 
